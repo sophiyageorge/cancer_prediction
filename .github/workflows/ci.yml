@@ -29,12 +29,12 @@ jobs:
     # Build API Docker image
     - name: Build API Docker Image
       run: |
-        docker build -t cancer-prediction-api:latest -f docker/Dockerfile-api .
+        docker build -t cancer-prediction-api:latest -f docker/Dockerfile_api .
 
     # Build UI Docker image
     - name: Build UI Docker Image
       run: |
-        docker build -t cancer-prediction-ui:latest -f docker/Dockerfile-ui .
+        docker build -t cancer-prediction-ui:latest -f docker/Dockerfile_ui .
 
     # Optional: Push Docker images to Docker Hub
     - name: Push API Image
