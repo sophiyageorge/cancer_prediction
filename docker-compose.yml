@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile_api
+    container_name: cancer-api
+    ports:
+      - "8000:8000"
+
+  ui:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile_ui
+    container_name: cancer-ui
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api

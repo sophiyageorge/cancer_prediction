@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.pyd
+*.pyo
+*.pym
+*.pyd
+*.pdb
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python egg info
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+*.manifest
+*.spec
+
+# Pytest cache
+.pytest_cache/
+
+# Joblib / model files
+model.joblib
+scaler.joblib
+
+# Docker
+*.dockerignore
+docker-compose.override.yml
