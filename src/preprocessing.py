@@ -1,7 +1,27 @@
+"""
+Feature preprocessing module.
+
+This module provides utilities for scaling
+training and testing feature sets.
+"""
+
 from sklearn.preprocessing import StandardScaler
 
-def preprocess_features(X_train, X_test):
+
+def preprocess_features(features_train, features_test):
+    """
+    Scale training and testing features using StandardScaler.
+
+    Args:
+        features_train: Training feature set.
+        features_test: Testing feature set.
+
+    Returns:
+        tuple: Scaled training features, scaled testing features, fitted scaler.
+    """
     scaler = StandardScaler()
-    X_train_scaled = scaler.fit_transform(X_train)
-    X_test_scaled = scaler.transform(X_test)
-    return X_train_scaled, X_test_scaled, scaler
+
+    features_train_scaled = scaler.fit_transform(features_train)
+    features_test_scaled = scaler.transform(features_test)
+
+    return features_train_scaled, features_test_scaled, scaler
