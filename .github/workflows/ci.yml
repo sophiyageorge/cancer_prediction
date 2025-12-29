@@ -29,23 +29,23 @@ jobs:
     # Build API Docker image
     - name: Build API Docker Image
       run: |
-        docker build -t cancer-prediction-api:latest -f docker/Dockerfile_api .
+        docker build -t 95mary25/cancer-prediction-api:latest -f docker/Dockerfile_api .
 
     # Build UI Docker image
     - name: Build UI Docker Image
       run: |
-        docker build -t cancer-prediction-ui:latest -f docker/Dockerfile_ui .
+        docker build -t 95mary25/cancer-prediction-ui:latest -f docker/Dockerfile_ui .
 
     # Optional: Push Docker images to Docker Hub
     - name: Push API Image
       run: |
-        docker tag cancer-prediction-api:latest yourdockerhubusername/cancer-prediction-api:latest
-        docker push yourdockerhubusername/cancer-prediction-api:latest
+        docker tag cancer-prediction-api:latest 95mary25/cancer-prediction-api:latest
+        docker push 95mary25/cancer-prediction-api:latest
 
     - name: Push UI Image
       run: |
-        docker tag cancer-prediction-ui:latest yourdockerhubusername/cancer-prediction-ui:latest
-        docker push yourdockerhubusername/cancer-prediction-ui:latest
+        docker tag cancer-prediction-ui:latest 95mary25/cancer-prediction-ui:latest
+        docker push 95mary25/cancer-prediction-ui:latest
 
     # Run pytest integration tests
     - name: Install dependencies
