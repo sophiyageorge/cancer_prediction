@@ -1,23 +1,22 @@
 """
-Integration tests for the cancer prediction pipeline.
-
-This module tests the full training and prediction workflow.
+Integration tests for the Cancer Prediction API.
+Tests both ML pipeline and API endpoints.
 """
+
 import sys
 from pathlib import Path
+from fastapi.testclient import TestClient
 
+# Make src folder importable
 sys.path.append(str(Path(__file__).resolve().parent.parent / "src"))
 
-# pylint: disable=import-error, wrong-import-position
-from model import train_model
-from predictor import predict
+from main import app  # Your FastAPI app
 
+client = TestClient(app)
 
-def test_full_pipeline():
-    """
-    Test the complete ML pipeline from training to prediction.
-    """
-    _, _ = train_model()
-    sample_input = [0.1]*30
-    result = predict(sample_input)
-    assert result in ["Malignant", "Benign"]
+def test_api_prediction():
+    """Test the /predict endpoint of the Cancer Prediction API."""
+    sample_input = {"features": [0.1]*30}
+    response = client.post("/predict", json=sample_input)
+    assert response.status_code == 200
+    assert response.json()["prediction"] in ["Malignant", "Benign"]
