@@ -4,13 +4,17 @@ Tests both ML pipeline and API endpoints.
 """
 
 import sys
+import os
 from pathlib import Path
 from fastapi.testclient import TestClient
 
 # Make api folder importable
-sys.path.append(str(Path(__file__).resolve().parent.parent / "api"))
+# sys.path.append(str(Path(__file__).resolve().parent.parent / "api"))
+# Add repo root to Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from main import app  # Your FastAPI app
+
+from api.main import app  # Your FastAPI app
 
 client = TestClient(app)
 
