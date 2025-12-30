@@ -56,7 +56,7 @@ jobs:
 
     - name: Lint Python files
       run: pylint --disable=R,C,W1203,W1202,W0613 src/
-      working-directory: ./cancer_prediction
+      
 
     - name: Run Tests
       run: pytest -v
