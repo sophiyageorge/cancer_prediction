@@ -7,8 +7,8 @@ import sys
 from pathlib import Path
 from fastapi.testclient import TestClient
 
-# Make src folder importable
-sys.path.append(str(Path(__file__).resolve().parent.parent / "src"))
+# Make api folder importable
+sys.path.append(str(Path(__file__).resolve().parent.parent / "api"))
 
 from main import app  # Your FastAPI app
 
